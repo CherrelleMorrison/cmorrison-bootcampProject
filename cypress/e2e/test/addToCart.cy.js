@@ -27,7 +27,7 @@ describe('Add to Cart', () => {
     cy.get('div.snipcart-cart-header__options').contains('2')
   })
 
-  it.only('Confirm that multiple products can be added to the cart', () => {
+  it('Confirm that multiple products can be added to the cart', () => {
     cy.get(ProductHomePage.hoodedSweatshirt).scrollIntoView().click()
     cy.location('pathname', { timeout: 10000 }).should('eq', '/products/quality-sweatshirt-hooded')
     cy.get(ProductDetailsPage.productName, { timeout: 10000 }).should('exist')
