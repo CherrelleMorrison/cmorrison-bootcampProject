@@ -12,12 +12,16 @@ class ProductDetailPage {
         return ('.chakra-stack.css-egoftb')
     }
 
-    get inputQuantity() {
-        return ('div.chakra-numberinput.css-9renge')
+    get increaseQuantity() {
+        return ('#product-increase > svg')
     }
 
     get backNavigation() {
         return ('div.chakra-stack.css-dpkrn2')
+    }
+
+    get continueShopping() {
+        return ('#snipcart header > button')
     }
 
     addToCart() {

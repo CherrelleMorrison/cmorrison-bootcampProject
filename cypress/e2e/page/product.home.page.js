@@ -60,5 +60,9 @@ get qualityMug() {
     return ('img[src="/images/quality-mug.jpg"]')
 }
 
+get qualityPillow() {
+    return ('img[src="/images/quality-pillow.jpg"]')
+}
+
 }
 export default new ProductHomePage()
