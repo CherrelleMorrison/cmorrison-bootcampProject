@@ -20,10 +20,6 @@ class ProductDetailPage {
         return ('div.chakra-stack.css-dpkrn2')
     }
 
-    get continueShopping() {
-        return ('#snipcart header > button')
-    }
-
     addToCart() {
         cy.get(this.addToCartBtn).scrollIntoView()
         cy.wait(1500)
