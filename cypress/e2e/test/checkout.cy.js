@@ -18,10 +18,11 @@ describe('Add to Cart', () => {
     ProductDetailsPage.addToCart()
     cy.get(CartPage.cartBadge).contains('1')
     cy.get(CartPage.checkoutBtn).click()
-    //cy.location('pathname', { timeout: 10000 }).should('eq', '/products#/checkout')
-    BillingPage.submitBilling()
-    cy.get(BillingPage.continuePaymentBtn).click()
-    BillingPage.completePayment()
+    //cy.wait(2500);
+    // BillingPage.submitBilling()
+    // cy.get(BillingPage.continuePaymentBtn).click()
+    // BillingPage.completePayment()
+    cy.get('#name_68c4199a-62d8-461e-ab27-5fff9c0f3a93').type('Cherrelle Morrison', {force: true})
 
   })
 

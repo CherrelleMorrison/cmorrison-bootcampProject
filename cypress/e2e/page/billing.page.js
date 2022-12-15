@@ -1,11 +1,11 @@
 class BillingPage {
 
     get inputName() {
-        return ('#name_daecf04c-87c4-4fb3-83fb-b19b226894c6')
+        return ('input[id="name_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
     }
 
     get inputEmail() {
-        return ('#email_bca0a9c6-5605-428c-a86b-51db74b5f82c')
+        return ('input[id="email_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
     }
 
     get inputStreet() {
@@ -13,23 +13,23 @@ class BillingPage {
     }
 
     get inputSuite() {
-        return ('#address2_108ce1e0-13ee-41dd-a0e7-c8b536877800')
+        return ('input[id="address2_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
     }
 
     get inputCity() {
-        return ('#city_108ce1e0-13ee-41dd-a0e7-c8b536877800')
+        return ('input[id="address1_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
     }
 
     get selectCountry() {
-        return ('#country_108ce1e0-13ee-41dd-a0e7-c8b536877800')
+        return ('input[id="country_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
     }
 
     get inputProvince() {
-        return ('#province_108ce1e0-13ee-41dd-a0e7-c8b536877800')
+        return ('input[id="province_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
     }
 
     get inputZipcode() {
-        return ('#postalCode_108ce1e0-13ee-41dd-a0e7-c8b536877800')
+        return ('input[id="postalCode_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
     }
 
     get continuePaymentBtn() {
@@ -65,14 +65,18 @@ class BillingPage {
     }
 
     submitBilling() {
-        cy.get(this.inputName).type('Cherrelle Morrison')
-        cy.get(this.inputEmail).type('cmorrison@mail.com')
-        cy.get(this.inputStreet).type('123 ABC Road')
-        cy.get(this.inputSuite).type('15A')
-        cy.get(this.inputCity).type('Kingston')
-        cy.get(this.selectCountry).type('Jamaica')
-        cy.get(this.inputProvince).type('St Andrew')
-        cy.get(this.inputZipcode).type('1876')
+        // cy.get('.snipcart-form__set').first().within(($fieldset) => {
+        //     cy.get(this.inputName).type('Cherrelle Morrison')
+        //     cy.get(this.inputEmail).type('cmorrison@mail.com')
+        //     cy.get(this.inputStreet).type('123 ABC Road')
+        //     cy.get(this.inputSuite).type('15A')
+        //     cy.get(this.inputCity).type('Kingston')
+        //     cy.get(this.selectCountry).type('Jamaica')
+        //     cy.get(this.inputProvince).type('St Andrew')
+        //     cy.get(this.inputZipcode).type('1876')
+        // })
+       cy.get('#name_68c4199a-62d8-461e-ab27-5fff9c0f3a93').click().type('Cherrelle Morrison')
+
     }
 
     completePayment() {
