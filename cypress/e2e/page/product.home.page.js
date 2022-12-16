@@ -37,7 +37,7 @@ class ProductHomePage {
     }
 
     get productPrices() {
-        return ('div.chakra-stack.css-1ieohnc')
+        return ('div.chakra-stack.css-1ieohnc > p')
     }
 
     get productTitles() {
@@ -64,16 +64,56 @@ class ProductHomePage {
         return ('img[src="/images/quality-pillow.jpg"]')
     }
 
-    sortListDescending() {
-        // const prodList = cy.get(this.productTitles)
-        // prodList.sort(function(a, b){return b-a})
-        // return prodList
-
-        cy.get(this.productTitles).then(($elements) => {
-            let strings_orig = $elements.map(($elements) => ($elements).text())
-            let strings_will_apply_sort = $elements.map(($elements) => ($elements.text()))
-            expect(strings_orig).to.equal(strings_will_apply_sort.sort())
+    sortListDescendingName() {
+        let prodList = []
+        prodList.sort().reverse()
+        cy.get(this.productTitles).each(($elem, index) => {
+            prodList[index] = ($elem.text())
+        }).then(() => {
+            cy.get(this.productTitles).each(($elem, index) => {
+            expect($elem.text()).equal(prodList[index])        
         })
+    })
+        
+    }
+
+    sortListAscendingName() {
+        let prodList = []
+        prodList.sort()
+        cy.get(this.productTitles).each(($elem, index) => {
+            prodList[index] = ($elem.text())
+        }).then(() => {
+            cy.get(this.productTitles).each(($elem, index) => {
+            expect($elem.text()).equal(prodList[index])        
+        })
+    })
+        
+    }
+
+    sortCostAscending() {
+        let prodList = []
+        prodList.sort()
+        cy.get(this.productPrices).each(($elem, index) => {
+            prodList[index] = parseFloat($elem.text().replace('$', ''))
+        }).then(() => {
+            cy.get(this.productPrices).each(($elem, index) => {
+            expect($elem.text()).equal('$'+prodList[index])        
+        })
+    })
+        
+    }
+
+    sortCostDescending() {
+        let prodList = []
+        prodList.sort().reverse()
+        cy.get(this.productPrices).each(($elem, index) => {
+            prodList[index] = parseFloat($elem.text().replace('$', ''))
+        }).then(() => {
+            cy.get(this.productPrices).each(($elem, index) => {
+            expect($elem.text()).equal('$'+prodList[index])        
+        })
+    })
+        
     }
 }
 export default new ProductHomePage()
