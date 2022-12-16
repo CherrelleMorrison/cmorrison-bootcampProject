@@ -6,27 +6,49 @@ import ProductHomePage from "../page/product.home.page";
 describe('Checkout', () => {
 
   beforeEach(() => {
-    cy.wait(1500)
     cy.visit('/products')
     cy.wait(1500)
   })
 
-  it.only('Confirm that a product can be added to cart', () => {
+  it('Confirm that a user cannot checkout with an empty cart', () =>{
+    cy.get(ProductHomePage.hoodedSweatshirt).scrollIntoView().click()
+    cy.location('pathname', { timeout: 10000 }).should('eq', '/products/quality-sweatshirt-hooded')
+    cy.get(ProductDetailsPage.productName, { timeout: 10000 }).should('exist')
+    ProductDetailsPage.addToCart()
+    cy.get(CartPage.cartBadge).contains('1')
+    cy.get(CartPage.decreaseQuantity).click()
+    cy.get(CartPage.checkoutBtn).should('not.exist')
+  })
+
+  it('Confirm that a user cannot continue checkout without required fields', () =>{
     cy.get(ProductHomePage.hoodedSweatshirt).scrollIntoView().click()
     cy.location('pathname', { timeout: 10000 }).should('eq', '/products/quality-sweatshirt-hooded')
     cy.get(ProductDetailsPage.productName, { timeout: 10000 }).should('exist')
     ProductDetailsPage.addToCart()
     cy.get(CartPage.cartBadge).contains('1')
     cy.get(CartPage.checkoutBtn).click()
-    //cy.wait(2500);
-    // BillingPage.submitBilling()
-    // cy.get(BillingPage.continuePaymentBtn).click()
-    // BillingPage.completePayment()
-    cy.get('#name_68c4199a-62d8-461e-ab27-5fff9c0f3a93').type('Cherrelle Morrison', {force: true})
+    cy.get(BillingPage.continuePaymentBtn).click({force: true})
+    cy.get(BillingPage.fieldErrorMsg).each(($elem) => {
+      expect($elem.text()).contains('This field is required')
+  })
 
   })
 
-  it('Confirm that multiple products can be added to the cart', () => {
+  it('Confirm that a user can checkout with a single product', () => {
+    cy.get(ProductHomePage.hoodedSweatshirt).scrollIntoView().click()
+    cy.location('pathname', { timeout: 10000 }).should('eq', '/products/quality-sweatshirt-hooded')
+    cy.get(ProductDetailsPage.productName, { timeout: 10000 }).should('exist')
+    ProductDetailsPage.addToCart()
+    cy.get(CartPage.cartBadge).contains('1')
+    cy.get(CartPage.checkoutBtn).click()
+    BillingPage.submitBilling()
+    cy.get(BillingPage.continuePaymentBtn).click({force: true})
+    cy.wait(3000)
+    BillingPage.completePayment()
+    cy.get(BillingPage.orderCompleteMsg).should('contain.text', 'Thank you for your order')
+  })
+
+  it('Confirm that a user can checkout with multiple products', () => {
     cy.get(ProductHomePage.hoodedSweatshirt).scrollIntoView().click()
     cy.location('pathname', { timeout: 10000 }).should('eq', '/products/quality-sweatshirt-hooded')
     cy.get(ProductDetailsPage.productName, { timeout: 10000 }).should('exist')
@@ -44,5 +66,11 @@ describe('Checkout', () => {
     cy.location('pathname', { timeout: 10000 }).should('eq', '/products/quality-pillow')
     ProductDetailsPage.addToCart()
     cy.get(CartPage.cartBadge).contains('3')
+    cy.get(CartPage.checkoutBtn).click()
+    BillingPage.submitBilling()
+    cy.get(BillingPage.continuePaymentBtn).click({force: true})
+    cy.wait(3000)
+    BillingPage.completePayment()
+    cy.get(BillingPage.orderCompleteMsg).should('contain.text', 'Thank you for your order')
   })
 })
