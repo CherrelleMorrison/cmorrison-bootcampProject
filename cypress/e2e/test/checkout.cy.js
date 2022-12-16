@@ -3,7 +3,7 @@ import CartPage from "../page/cart.page";
 import ProductDetailsPage from "../page/product.details.page";
 import ProductHomePage from "../page/product.home.page";
 
-describe('Add to Cart', () => {
+describe('Checkout', () => {
 
   beforeEach(() => {
     cy.wait(1500)
