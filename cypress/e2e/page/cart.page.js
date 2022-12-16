@@ -31,9 +31,5 @@ class CartPage{
     get cartItemPrice() {
         return ('.snipcart-item-quantity__total-price')
     }
-
-    get cartSummaryFee() {
-        return ('div.snipcart-summary-fees span:nth-child(2)')
-    }
 }
 export default new CartPage()

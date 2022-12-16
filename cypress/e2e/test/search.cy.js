@@ -3,8 +3,6 @@ import ProductHomePage from "../page/product.home.page";
 describe('Search', () => {
 
     beforeEach(() => {
-
-        cy.wait(1500)
         cy.visit('/products')
         cy.wait(1500)
     })

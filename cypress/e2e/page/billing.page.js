@@ -1,39 +1,39 @@
 class BillingPage {
 
     get inputName() {
-        return ('input[id="name_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
+        return ('input[name="name"]')
     }
 
     get inputEmail() {
-        return ('input[id="email_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
+        return ('input[name="email"]')
     }
 
     get inputStreet() {
-        return ('.snipcart-form__address-autocomplete>div')
+        return ('.snipcart-form__address-autocomplete>label+div')
     }
 
     get inputSuite() {
-        return ('input[id="address2_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
+        return ('input[name="address2"]')
     }
 
     get inputCity() {
-        return ('input[id="address1_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
+        return ('input[name="city"]')
     }
 
     get selectCountry() {
-        return ('input[id="country_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
+        return ('select[name="country"]')
     }
 
     get inputProvince() {
-        return ('input[id="province_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
+        return ('select[name="province"]')
     }
 
     get inputZipcode() {
-        return ('input[id="postalCode_629ad4e3-b325-4d82-bf41-a969172d5ade"]')
+        return ('input[name="postalCode"]')
     }
 
     get continuePaymentBtn() {
-        return ('div.snipcart-form__footer > button')
+        return ('#snipcart-billing-form > div > div.snipcart-form__footer > button')
     }
 
     get itemPrice() {
@@ -64,19 +64,19 @@ class BillingPage {
         return ('div.snipcart__box.snipcart-order__box.snipcart-order__box__header')
     }
 
-    submitBilling() {
-        // cy.get('.snipcart-form__set').first().within(($fieldset) => {
-        //     cy.get(this.inputName).type('Cherrelle Morrison')
-        //     cy.get(this.inputEmail).type('cmorrison@mail.com')
-        //     cy.get(this.inputStreet).type('123 ABC Road')
-        //     cy.get(this.inputSuite).type('15A')
-        //     cy.get(this.inputCity).type('Kingston')
-        //     cy.get(this.selectCountry).type('Jamaica')
-        //     cy.get(this.inputProvince).type('St Andrew')
-        //     cy.get(this.inputZipcode).type('1876')
-        // })
-       cy.get('#name_68c4199a-62d8-461e-ab27-5fff9c0f3a93').click().type('Cherrelle Morrison')
+    get fieldErrorMsg() {
+        return ('[data-for="email"]')
+    }
 
+    submitBilling() {
+        cy.get(this.inputName).type('Cherrelle Morrison')
+        cy.get(this.inputEmail).type('cmorrison@mail.com')
+        cy.get(this.inputStreet).type('123 ABC Road')
+        cy.get(this.inputSuite).type('15A')
+        cy.get(this.inputCity).type('Kingston')
+        cy.get(this.selectCountry).select('CA')
+        cy.get(this.inputProvince).select('SK')
+        cy.get(this.inputZipcode).type('S6H 7X6')
     }
 
     completePayment() {
