@@ -64,5 +64,33 @@ class ProductHomePage {
         return ('img[src="/images/quality-pillow.jpg"]')
     }
 
+    get addToFavoritesBtns() {
+        return ('#add-to-favorite')
+    }
+
+    get removeFromFavoritesBtn() {
+        return ('#remove-from-favorite')
+    }
+
+    get qualityMugFavoriteBtn() {
+        return ('#product-3 div.css-1m8iww1')
+    }
+
+    get qualityPillowFavoriteBtn() {
+        return ('#product-4 div.css-1m8iww1')
+    }
+
+    get hoodedSweatshirtFavoriteBtn() {
+        return ('#product-5 div.css-1m8iww1')
+    }
+
+    get alertPopUpMsg() {
+        return ('.chakra-alert__title.css-tidvy5')
+    }
+
+    get closePopUp() {
+        return ('button[aria-label="Close"]')
+    }
+
 }
 export default new ProductHomePage()

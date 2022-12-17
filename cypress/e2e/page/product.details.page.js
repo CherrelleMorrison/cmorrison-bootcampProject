@@ -19,6 +19,19 @@ class ProductDetailPage {
     get backNavigation() {
         return ('div.chakra-stack.css-dpkrn2')
     }
+
+    get addToFavoritesBtn() {
+        return ('#add-to-favorite')
+    }
+
+    get removeFromFavoritesBtn() {
+        return ('#remove-from-favorite')
+    }
+
+    get alertPopUpMsg() {
+        return ('.chakra-alert__title.css-tidvy5')
+    }
+    
     //method
     addToCart() {
         cy.get(this.addToCartBtn).scrollIntoView()
