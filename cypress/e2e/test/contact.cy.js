@@ -4,7 +4,6 @@ describe('Contact Form', () => {
     beforeEach(() => {
         cy.visit('/contact')
     })
-
     it('Confirm that a message cannot be sent with incomplete fields', () => {
         cy.get(ContactPage.sendMsgBtn).click()
         cy.get(ContactPage.requiredFieldError).should('be.visible')
@@ -15,12 +14,15 @@ describe('Contact Form', () => {
     })
 
     it('Confirm that a valid email is required to send a message', () => {
-        ContactPage.incompleteForm('john', 'doe', 'invalidemail', 'test', 'test email error message')
+        ContactPage.sendMessage('john', 'doe', 'invalidemail', 'test', 'test email error message')
         cy.get(ContactPage.requiredFieldError).should('include.text', 'Email is invalid')
     })
 
     it('Confirm that a message can be sent successfully', () => {
-        ContactPage.sendMessage()
+        ContactPage.sendMessage('bella', 'swan', 'mail@mail.com', 'successful contact', 'test that contact form submitted successfully')
         cy.get(ContactPage.successMsg).should('include.text', 'Your message has been sent!')
     })
 })
+
+
+
