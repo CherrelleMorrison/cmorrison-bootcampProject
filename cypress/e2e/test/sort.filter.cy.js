@@ -27,7 +27,6 @@ describe('Sort and Filter', () => {
                 expect($elem.text()).equal(prodList[index])
             })
         })
-
     })
 
     it('Confirm that products can be sorted by name in reverse alphabetical order', () => {
