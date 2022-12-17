@@ -63,57 +63,5 @@ class ProductHomePage {
     get qualityPillow() {
         return ('img[src="/images/quality-pillow.jpg"]')
     }
-
-    sortListDescendingName() {
-        let prodList = []
-        prodList.sort().reverse()
-        cy.get(this.productTitles).each(($elem, index) => {
-            prodList[index] = ($elem.text())
-        }).then(() => {
-            cy.get(this.productTitles).each(($elem, index) => {
-            expect($elem.text()).equal(prodList[index])        
-        })
-    })
-        
-    }
-
-    sortListAscendingName() {
-        let prodList = []
-        prodList.sort()
-        cy.get(this.productTitles).each(($elem, index) => {
-            prodList[index] = ($elem.text())
-        }).then(() => {
-            cy.get(this.productTitles).each(($elem, index) => {
-            expect($elem.text()).equal(prodList[index])        
-        })
-    })
-        
-    }
-
-    sortCostAscending() {
-        let prodList = []
-        prodList.sort()
-        cy.get(this.productPrices).each(($elem, index) => {
-            prodList[index] = parseFloat($elem.text().replace('$', ''))
-        }).then(() => {
-            cy.get(this.productPrices).each(($elem, index) => {
-            expect($elem.text()).equal('$'+prodList[index])        
-        })
-    })
-        
-    }
-
-    sortCostDescending() {
-        let prodList = []
-        prodList.sort().reverse()
-        cy.get(this.productPrices).each(($elem, index) => {
-            prodList[index] = parseFloat($elem.text().replace('$', ''))
-        }).then(() => {
-            cy.get(this.productPrices).each(($elem, index) => {
-            expect($elem.text()).equal('$'+prodList[index])        
-        })
-    })
-        
-    }
 }
 export default new ProductHomePage()
