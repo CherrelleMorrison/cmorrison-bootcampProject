@@ -1,5 +1,5 @@
 class BillingPage {
-
+    // getters
     get inputName() {
         return ('input[name="name"]')
     }
@@ -68,6 +68,7 @@ class BillingPage {
         return ('[data-for="email"]')
     }
 
+    //methods
     submitBilling() {
         cy.get(this.inputName).type('Cherrelle Morrison')
         cy.get(this.inputEmail).type('cmorrison@mail.com')

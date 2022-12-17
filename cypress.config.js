@@ -10,5 +10,13 @@ module.exports = defineConfig({
     baseUrl: 'https://ui-automation-camp.vercel.app/',
     specPattern: 'cypress/e2e/test/**/*.cy.{js,jsx,ts,tsx}',
 
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: 'cypress/reports',
+      overwrite: false,
+      html: false,
+      json: true
+    }
+
   },
 });

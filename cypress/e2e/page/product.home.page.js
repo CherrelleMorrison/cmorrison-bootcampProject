@@ -63,5 +63,6 @@ class ProductHomePage {
     get qualityPillow() {
         return ('img[src="/images/quality-pillow.jpg"]')
     }
+
 }
 export default new ProductHomePage()

@@ -1,7 +1,7 @@
-class CartPage{
-
+class CartPage {
+    //getters
     get cartCount() {
-        return('div.snipcart-cart-header__options')
+        return ('div.snipcart-cart-header__options')
     }
 
     get cartItemName() {
