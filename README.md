@@ -3,7 +3,7 @@
 Prerequisites
 
 1. npm, NodeJS
-To check if it is insalled, type npm -v in the terminal. If not install download from https://nodejs.org/en/
+To check if it is insalled, type node --v in the terminal. If not install download from https://nodejs.org/en/
 
 2. Visual Studio Code
 If not already installed, please find download here: https://code.visualstudio.com/download
