@@ -1,15 +1,14 @@
 import ProductHomePage from "../page/product.home.page";
 
 describe('Product Home Page', () => {
-
     beforeEach(() => {
-      cy.visit('/products')
-      cy.wait(1500)
+        cy.visit('/products')
+        cy.wait(1500)
     })
 
-    it('Confirm that the list of products is displayed', () =>{
-    cy.get(ProductHomePage.productsGrid).should('be.visible')
-    cy.get(ProductHomePage.productTitles).should('exist')
+    it('Confirm that the list of products is displayed', () => {
+        cy.get(ProductHomePage.productsGrid).should('be.visible')
+        cy.get(ProductHomePage.productTitles).should('exist')
     })
 
     it('Confirm that each product has an add to cart button', () => {

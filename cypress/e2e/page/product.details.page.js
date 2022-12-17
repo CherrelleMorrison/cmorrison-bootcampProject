@@ -1,7 +1,7 @@
 class ProductDetailPage {
-
+    //getters
     get productName() {
-        return('.chakra-container h2:nth-child(1)')
+        return ('.chakra-container h2:nth-child(1)')
     }
 
     get addToCartBtn() {
@@ -19,12 +19,11 @@ class ProductDetailPage {
     get backNavigation() {
         return ('div.chakra-stack.css-dpkrn2')
     }
-
+    //method
     addToCart() {
         cy.get(this.addToCartBtn).scrollIntoView()
         cy.wait(1500)
         cy.get(this.addToCartBtn).should('be.visible').click()
     }
 }
-
 export default new ProductDetailPage()

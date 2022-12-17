@@ -1,9 +1,7 @@
 import ProductHomePage from "../page/product.home.page"
 
 describe('Sort and Filter', () => {
-
     beforeEach(() => {
-
         cy.visit('/products')
         cy.wait(1500)
     })
@@ -19,7 +17,8 @@ describe('Sort and Filter', () => {
     it('Confirm that products can be sorted by name in alphabetical order', () => {
         //sort products list from A-Z product name
         cy.get(ProductHomePage.sortSelect).select('aToZ')
-        ProductHomePage.sortListDescendingName()
+        //ProductHomePage.sortListDescendingName()
+        
     })
 
     it('Confirm that products can be sorted by name in reverse alphabetical order', () => {

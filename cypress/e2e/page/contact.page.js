@@ -35,7 +35,7 @@ class ContactPage {
     get emailErrorMsg() {
         return ('#field-\:r4\:-feedback')
     }
-
+    //methods
     sendMessage() {
         cy.get(this.contactFirstName).type('Cherrelle')
         cy.get(this.contactLastName).type('Morrison')
@@ -45,7 +45,7 @@ class ContactPage {
         cy.get(this.sendMsgBtn).click()
     }
 
-    incompleteForm(fname, lname, email, subject,body) {
+    incompleteForm(fname, lname, email, subject, body) {
         cy.get(this.contactFirstName).type(fname)
         cy.get(this.contactLastName).type(lname)
         cy.get(this.contactEmail).type(email)

@@ -71,10 +71,10 @@ class ProductHomePage {
             prodList[index] = ($elem.text())
         }).then(() => {
             cy.get(this.productTitles).each(($elem, index) => {
-            expect($elem.text()).equal(prodList[index])        
+                expect($elem.text()).equal(prodList[index])
+            })
         })
-    })
-        
+
     }
 
     sortListAscendingName() {
@@ -84,10 +84,10 @@ class ProductHomePage {
             prodList[index] = ($elem.text())
         }).then(() => {
             cy.get(this.productTitles).each(($elem, index) => {
-            expect($elem.text()).equal(prodList[index])        
+                expect($elem.text()).equal(prodList[index])
+            })
         })
-    })
-        
+
     }
 
     sortCostAscending() {
@@ -97,10 +97,10 @@ class ProductHomePage {
             prodList[index] = parseFloat($elem.text().replace('$', ''))
         }).then(() => {
             cy.get(this.productPrices).each(($elem, index) => {
-            expect($elem.text()).equal('$'+prodList[index])        
+                expect($elem.text()).equal('$' + prodList[index])
+            })
         })
-    })
-        
+
     }
 
     sortCostDescending() {
@@ -110,10 +110,10 @@ class ProductHomePage {
             prodList[index] = parseFloat($elem.text().replace('$', ''))
         }).then(() => {
             cy.get(this.productPrices).each(($elem, index) => {
-            expect($elem.text()).equal('$'+prodList[index])        
+                expect($elem.text()).equal('$' + prodList[index])
+            })
         })
-    })
-        
+
     }
 }
 export default new ProductHomePage()
